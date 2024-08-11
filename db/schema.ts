@@ -23,6 +23,11 @@ export const users = pgTable('users', {
     email: text('email').notNull().unique(),
     passwordHash: text('password_hash').notNull(),
     createdAt: timestamp('created_at').notNull().defaultNow(),
+    settings: json('settings').$type<{
+        theme: 'light' | 'dark';
+        displayCompact: boolean;
+        fontSize: 'small' | 'medium' | 'large';
+    }>(),
 });
 
 export const leetcodeQuestions = pgTable('leetcode_questions', {

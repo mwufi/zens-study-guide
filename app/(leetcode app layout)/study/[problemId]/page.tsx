@@ -1,10 +1,10 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Textarea } from "@/components/ui/textarea"
 import { db } from '@/db'
 import { leetcodeQuestions } from '@/db/schema'
 import { eq } from 'drizzle-orm'
+import Editor from '@/components/editor/Editor'
 
 async function getLeetcodeQuestion(problemId: string) {
     const question = await db.select().from(leetcodeQuestions).where(eq(leetcodeQuestions.id, parseInt(problemId)))
@@ -43,10 +43,7 @@ export default async function ProblemPage({ params }: { params: { problemId: str
                     <CardTitle>Your Solution</CardTitle>
                 </CardHeader>
                 <CardContent>
-                    <Textarea
-                        className="h-full"
-                        placeholder="Write your solution here..."
-                    />
+                    <Editor />
                 </CardContent>
             </Card>
         </div>
