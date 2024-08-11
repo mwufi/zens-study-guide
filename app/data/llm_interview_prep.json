@@ -1,0 +1,241 @@
+{
+  "name": "LLM Interview Preparation Topics",
+  "subtopics": [
+    {
+      "name": "Fundamentals",
+      "subtopics": [
+        {
+          "name": "Neural Network Basics",
+          "topics": [
+            "Backpropagation",
+            "Activation functions",
+            "Optimization algorithms (SGD, Adam, etc.)"
+          ]
+        },
+        {
+          "name": "Natural Language Processing Basics",
+          "topics": [
+            "Tokenization techniques",
+            "Word embeddings (Word2Vec, GloVe)",
+            "Language modeling concepts"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Architecture and Model Design",
+      "subtopics": [
+        {
+          "name": "Recurrent Neural Networks (RNNs)",
+          "topics": [
+            "LSTM and GRU",
+            "Bidirectional RNNs"
+          ]
+        },
+        {
+          "name": "Transformer Architecture",
+          "topics": [
+            "Self-attention mechanism",
+            "Multi-head attention",
+            "Positional encoding"
+          ]
+        },
+        {
+          "name": "Popular LLM Architectures",
+          "topics": [
+            "BERT and its variants (RoBERTa, ALBERT, etc.)",
+            "GPT series",
+            "T5 and BART",
+            "PaLM, LaMDA, LLaMA"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Training and Optimization",
+      "subtopics": [
+        {
+          "name": "Pre-training Techniques",
+          "topics": [
+            "Masked Language Modeling",
+            "Causal Language Modeling",
+            "Sequence-to-Sequence Pre-training"
+          ]
+        },
+        {
+          "name": "Fine-tuning Strategies",
+          "topics": [
+            "Full fine-tuning",
+            {
+              "name": "Parameter-Efficient Fine-Tuning (PEFT)",
+              "subtopics": [
+                "LoRA (Low-Rank Adaptation)",
+                "Prefix Tuning",
+                "Prompt Tuning"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Scaling Laws and Efficiency",
+          "topics": [
+            "Model scaling techniques",
+            "Mixture of Experts (MoE)",
+            "Sparse Attention mechanisms"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Advanced Techniques",
+      "subtopics": [
+        {
+          "name": "Prompt Engineering",
+          "topics": [
+            "Few-shot learning",
+            "In-context learning",
+            "Chain-of-Thought prompting"
+          ]
+        },
+        {
+          "name": "Retrieval-Augmented Generation (RAG)",
+          "topics": [
+            "Vector databases",
+            "Retrieval strategies",
+            "Integration with LLMs"
+          ]
+        },
+        {
+          "name": "Reinforcement Learning from Human Feedback (RLHF)",
+          "topics": [
+            "Reward modeling",
+            "Policy optimization",
+            "Constitutional AI concepts"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Evaluation and Benchmarking",
+      "subtopics": [
+        {
+          "name": "Evaluation Metrics",
+          "topics": [
+            "Perplexity",
+            "BLEU, ROUGE, METEOR",
+            "BERTScore"
+          ]
+        },
+        {
+          "name": "Benchmarks",
+          "topics": [
+            "GLUE and SuperGLUE",
+            "SQuAD",
+            "MMLU (Massive Multitask Language Understanding)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Practical Aspects",
+      "subtopics": [
+        {
+          "name": "Distributed Training",
+          "topics": [
+            "Data parallelism",
+            "Model parallelism",
+            "Pipeline parallelism"
+          ]
+        },
+        {
+          "name": "Hardware Optimization",
+          "topics": [
+            "Mixed precision training",
+            "Gradient accumulation",
+            "Optimizer state partitioning"
+          ]
+        },
+        {
+          "name": "Deployment and Serving",
+          "topics": [
+            "Model compression techniques",
+            "Quantization",
+            "Efficient inference strategies"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Emerging Trends and Research Directions",
+      "subtopics": [
+        {
+          "name": "Multimodal Models",
+          "topics": [
+            "Vision-language models (e.g., CLIP, DALL-E)",
+            "Audio-language integration"
+          ]
+        },
+        {
+          "name": "Reasoning and Tool Use",
+          "topics": [
+            "Chain-of-Thought techniques",
+            "Tool-augmented LLMs"
+          ]
+        },
+        {
+          "name": "Long-context Models",
+          "topics": [
+            "Attention mechanisms for long sequences",
+            "Hierarchical representations"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ethical Considerations and Limitations",
+      "subtopics": [
+        {
+          "name": "Bias and Fairness",
+          "topics": [
+            "Types of bias in LLMs",
+            "Debiasing techniques"
+          ]
+        },
+        {
+          "name": "Interpretability and Explainability",
+          "topics": [
+            "Attention visualization",
+            "Probing techniques"
+          ]
+        },
+        {
+          "name": "Safety and Alignment",
+          "topics": [
+            "Content filtering",
+            "Truthfulness and hallucination mitigation"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Industry Applications",
+      "subtopics": [
+        {
+          "name": "Chatbots and Virtual Assistants"
+        },
+        {
+          "name": "Content Generation and Summarization"
+        },
+        {
+          "name": "Code Generation and Analysis"
+        },
+        {
+          "name": "Translation and Localization"
+        },
+        {
+          "name": "Healthcare and Scientific Applications"
+        }
+      ]
+    }
+  ]
+}

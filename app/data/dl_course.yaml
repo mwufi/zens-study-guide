@@ -1,0 +1,66 @@
+name: Hands-on Large Language Model Development
+duration: One Semester
+main_projects: 3
+subtopics:
+  - name: Fundamentals of Neural Networks with PyTorch (3 weeks)
+    subtopics:
+      - name: Introduction to PyTorch
+      - name: Building Basic Neural Networks
+      - name: Optimization and Training Techniques
+    assignments:
+      - name: HW1 - Implement a simple feedforward neural network for MNIST classification
+      - name: HW2 - Build a basic CNN for image classification
+    project:
+      name: Project 1 - Character-Level Language Model
+      description: Implement a character-level language model using RNNs or LSTMs in pure PyTorch. Train on a text corpus and generate new text.
+
+  - name: Attention and Transformer Architecture (4 weeks)
+    subtopics:
+      - name: Self-Attention Mechanism
+      - name: Multi-Head Attention
+      - name: Positional Encoding
+      - name: Full Transformer Architecture
+    assignments:
+      - name: HW3 - Implement self-attention mechanism from scratch
+      - name: HW4 - Build a full transformer encoder layer
+    project:
+      name: Project 2 - Simple Transformer for Machine Translation
+      description: Implement a basic transformer model for machine translation using PyTorch. Train on a small dataset and evaluate performance.
+
+  - name: Modern LLM Techniques (4 weeks)
+    subtopics:
+      - name: Pre-training and Fine-tuning
+      - name: Tokenization Strategies
+      - name: Efficient Fine-tuning Methods (e.g., LoRA)
+      - name: Prompt Engineering
+    assignments:
+      - name: HW5 - Implement BPE tokenization from scratch
+      - name: HW6 - Fine-tune a small pre-trained model (e.g., DistilBERT) for text classification
+
+  - name: Advanced LLM Concepts (3 weeks)
+    subtopics:
+      - name: Scaling Laws in Language Models
+      - name: Retrieval-Augmented Generation (RAG)
+      - name: Reinforcement Learning from Human Feedback (RLHF)
+    assignments:
+      - name: HW7 - Implement a basic RAG system using Wikipedia data
+      - name: HW8 - Experiment with RLHF using a simple environment
+
+  - name: Ethical Considerations and Bias Mitigation (2 weeks)
+    subtopics:
+      - name: Bias in Language Models
+      - name: Fairness and Transparency
+      - name: Privacy-Preserving Machine Learning
+    assignments:
+      - name: HW9 - Analyze and mitigate bias in a fine-tuned model
+
+  - name: Final Project and Future Trends (4 weeks)
+    subtopics:
+      - name: Latest Developments in LLMs
+      - name: Project Work and Presentations
+    project:
+      name: Project 3 - Build and Fine-tune a GPT-style Model
+      description: Implement a GPT-style model from scratch using PyTorch. Pre-train on a moderate-sized corpus, then fine-tune for a specific task (e.g., question-answering, summarization). Compare with existing models and analyze limitations.
+
+  - name: Guest Lectures and Industry Insights
+    description: Throughout the semester, invite industry experts to share real-world applications and challenges in LLM development.

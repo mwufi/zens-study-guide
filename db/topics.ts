@@ -1,4 +1,4 @@
-import topicsData from "@/app/topicsData.json";
+import topicsData from "@/app/data/topicsData.json";
 
 interface Topic {
     name: string;

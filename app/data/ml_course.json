@@ -1,0 +1,302 @@
+{
+  "name": "Fundamental Machine Learning Concepts",
+  "subtopics": [
+    {
+      "name": "Introduction to Machine Learning",
+      "subtopics": [
+        {
+          "name": "What is Machine Learning?"
+        },
+        {
+          "name": "Types of Machine Learning",
+          "subtopics": [
+            {
+              "name": "Supervised Learning"
+            },
+            {
+              "name": "Unsupervised Learning"
+            },
+            {
+              "name": "Reinforcement Learning"
+            }
+          ]
+        },
+        {
+          "name": "Machine Learning vs. Traditional Programming"
+        },
+        {
+          "name": "Applications of Machine Learning"
+        }
+      ]
+    },
+    {
+      "name": "Data in Machine Learning",
+      "subtopics": [
+        {
+          "name": "Types of Data",
+          "subtopics": [
+            {
+              "name": "Numerical Data"
+            },
+            {
+              "name": "Categorical Data"
+            },
+            {
+              "name": "Time Series Data"
+            }
+          ]
+        },
+        {
+          "name": "Data Collection and Preprocessing",
+          "subtopics": [
+            {
+              "name": "Data Cleaning"
+            },
+            {
+              "name": "Feature Scaling"
+            },
+            {
+              "name": "Handling Missing Data"
+            }
+          ]
+        },
+        {
+          "name": "Feature Engineering"
+        },
+        {
+          "name": "Data Splitting (Training, Validation, Test Sets)"
+        }
+      ]
+    },
+    {
+      "name": "Supervised Learning",
+      "subtopics": [
+        {
+          "name": "Linear Regression",
+          "subtopics": [
+            {
+              "name": "Simple Linear Regression"
+            },
+            {
+              "name": "Multiple Linear Regression"
+            }
+          ]
+        },
+        {
+          "name": "Logistic Regression"
+        },
+        {
+          "name": "Decision Trees"
+        },
+        {
+          "name": "Random Forests"
+        },
+        {
+          "name": "Support Vector Machines (SVM)"
+        },
+        {
+          "name": "k-Nearest Neighbors (k-NN)"
+        },
+        {
+          "name": "Naive Bayes"
+        }
+      ]
+    },
+    {
+      "name": "Unsupervised Learning",
+      "subtopics": [
+        {
+          "name": "Clustering",
+          "subtopics": [
+            {
+              "name": "K-Means Clustering"
+            },
+            {
+              "name": "Hierarchical Clustering"
+            }
+          ]
+        },
+        {
+          "name": "Dimensionality Reduction",
+          "subtopics": [
+            {
+              "name": "Principal Component Analysis (PCA)"
+            },
+            {
+              "name": "t-SNE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Neural Networks and Deep Learning",
+      "subtopics": [
+        {
+          "name": "Introduction to Neural Networks"
+        },
+        {
+          "name": "Activation Functions"
+        },
+        {
+          "name": "Backpropagation"
+        },
+        {
+          "name": "Deep Neural Networks"
+        },
+        {
+          "name": "Convolutional Neural Networks (CNNs)"
+        },
+        {
+          "name": "Recurrent Neural Networks (RNNs)"
+        },
+        {
+          "name": "Transfer Learning"
+        }
+      ]
+    },
+    {
+      "name": "Model Evaluation and Validation",
+      "subtopics": [
+        {
+          "name": "Evaluation Metrics",
+          "subtopics": [
+            {
+              "name": "Accuracy, Precision, Recall, F1-Score"
+            },
+            {
+              "name": "ROC Curve and AUC"
+            },
+            {
+              "name": "Mean Squared Error (MSE) and R-squared"
+            }
+          ]
+        },
+        {
+          "name": "Cross-Validation"
+        },
+        {
+          "name": "Overfitting and Underfitting"
+        },
+        {
+          "name": "Regularization Techniques",
+          "subtopics": [
+            {
+              "name": "L1 and L2 Regularization"
+            },
+            {
+              "name": "Dropout"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Practical Machine Learning",
+      "subtopics": [
+        {
+          "name": "Machine Learning Libraries and Frameworks",
+          "subtopics": [
+            {
+              "name": "Scikit-learn"
+            },
+            {
+              "name": "TensorFlow"
+            },
+            {
+              "name": "PyTorch"
+            }
+          ]
+        },
+        {
+          "name": "Data Visualization",
+          "subtopics": [
+            {
+              "name": "Matplotlib"
+            },
+            {
+              "name": "Seaborn"
+            }
+          ]
+        },
+        {
+          "name": "Hyperparameter Tuning"
+        },
+        {
+          "name": "Handling Imbalanced Datasets"
+        }
+      ]
+    },
+    {
+      "name": "Ethics and Responsible AI",
+      "subtopics": [
+        {
+          "name": "Bias in Machine Learning"
+        },
+        {
+          "name": "Fairness in AI"
+        },
+        {
+          "name": "Privacy Concerns"
+        },
+        {
+          "name": "Explainable AI"
+        }
+      ]
+    },
+    {
+      "name": "Advanced Topics (Introduction)",
+      "subtopics": [
+        {
+          "name": "Ensemble Methods"
+        },
+        {
+          "name": "Natural Language Processing (NLP)"
+        },
+        {
+          "name": "Reinforcement Learning"
+        },
+        {
+          "name": "Generative Adversarial Networks (GANs)"
+        },
+        {
+          "name": "AutoML"
+        }
+      ]
+    },
+    {
+      "name": "Real-world Applications and Case Studies",
+      "subtopics": [
+        {
+          "name": "Image Recognition"
+        },
+        {
+          "name": "Sentiment Analysis"
+        },
+        {
+          "name": "Recommendation Systems"
+        },
+        {
+          "name": "Fraud Detection"
+        },
+        {
+          "name": "Autonomous Vehicles"
+        }
+      ]
+    },
+    {
+      "name": "Future of Machine Learning",
+      "subtopics": [
+        {
+          "name": "Emerging Trends"
+        },
+        {
+          "name": "Challenges and Opportunities"
+        },
+        {
+          "name": "Career Paths in Machine Learning"
+        }
+      ]
+    }
+  ]
+}
