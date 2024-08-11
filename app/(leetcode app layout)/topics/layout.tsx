@@ -1,6 +1,4 @@
 
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 import TopicsSidebar from '@/components/blocks/TopicsSidebar';
 
 export default function TopicsLayout({ children }: { children: React.ReactNode }) {
