@@ -1,48 +1,75 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Learning
 
-## Features
+we want to create a system for learning new things.
 
-- Basic installs (shadcn, lucide-react)
+Generate a tree of topics and questions.
 
-- Home page
+Store new kinds of things.
+For example, leetcode questions.
 
-<img src="docs/home.png" width="50%">
+- For every object, we want to have a schema.
 
-- Charts page
+Everything will be interconnected.
 
-<img src="docs/charts.png" width="50%">
+You can store new types of stuff. How do we make this super easy? Well, via examples.
 
-## Getting Started
+To create something like this:
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+{
+    "name": "Leetcode Question",
+    "description": "Questions I gathered from leetcode",
+    "properties": [
+        {
+            "name": "question",
+            "type": "string",
+            "description": "The question"
+        },
+        {
+            "name": "notes",
+            "type": "string",
+            "description": "notes for the question"
+        }
+    ]
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+We can generate it from a form that has it.
+{
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+    "example": {
+        "question": "What is the capital of France?",
+        "answer": "Paris",
+        "notes": {
+            "difficulty": "easy",
+            "tags": ["easy", "math", "leetcode"]
+        }
+    }
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+}
 
-## Learn More
+## Modeling leetcode questions
+First, we're going to need to create a schema for leetcode questions.
 
-To learn more about Next.js, take a look at the following resources:
+leetcode_question
+url, name, description, link, notes, difficulty, tags
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+each leetcode_question has many leetcode_question_solutions
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+leetcode_solution
+language, code, notes
 
-## Deploy on Vercel
+We can have attempts at solutions.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+leetcode_question_solution_attempt - tracks the learner's progress on a solution
+language, code, success, timeStarted, timeCompleted, testCasesPassed, testCasesFailed
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+We can also run the code and see the results.
+
+leetcode_run - tracks the results of a run
+question_id, language, code, success, testCasesPassed, testCasesFailed
+
+Using this schema, we can model a user's progress on leetcode.
+They browse `leetcode_question`s and click on one. Then, they can write code, starting a `leetcode_question_solution_attempt`, and run it, creating a `leetcode_run`.
+
+The user can also 
