@@ -25,6 +25,156 @@
                 "id": "FML005",
                 "question": "What is ensemble learning and why is it effective?",
                 "response": "Ensemble learning combines multiple models to improve predictive performance. It's effective because it reduces overfitting, averages out biases, and can capture more complex patterns in the data."
+            },
+            {
+                "id": "FML006",
+                "question": "What is the difference between classification and regression?",
+                "response": "Classification predicts discrete class labels, while regression predicts continuous numerical values."
+            },
+            {
+                "id": "FML007",
+                "question": "Explain the concept of overfitting and how to prevent it.",
+                "response": "Overfitting occurs when a model learns the training data too well, including noise. It can be prevented through techniques like regularization, cross-validation, and early stopping."
+            },
+            {
+                "id": "FML008",
+                "question": "What is feature engineering and why is it important?",
+                "response": "Feature engineering is the process of creating new features or transforming existing ones to improve model performance. It's important because it can capture domain knowledge and improve the model's ability to learn from the data."
+            },
+            {
+                "id": "FML009",
+                "question": "Describe the concept of cross-validation.",
+                "response": "Cross-validation is a technique for assessing how well a model will generalize to an independent dataset. It involves partitioning the data into subsets, training on some subsets, and validating on others."
+            },
+            {
+                "id": "FML010",
+                "question": "What is the difference between bagging and boosting?",
+                "response": "Bagging (Bootstrap Aggregating) trains multiple models in parallel on random subsets of the data. Boosting trains models sequentially, with each model trying to correct the errors of the previous ones."
+            },
+            {
+                "id": "FML011",
+                "question": "Explain the concept of regularization in machine learning.",
+                "response": "Regularization is a technique used to prevent overfitting by adding a penalty term to the loss function, discouraging complex models and promoting simpler ones."
+            },
+            {
+                "id": "FML012",
+                "question": "What is the difference between L1 and L2 regularization?",
+                "response": "L1 regularization (Lasso) adds the absolute value of weights to the loss function, promoting sparsity. L2 regularization (Ridge) adds the squared value of weights, shrinking all weights towards zero."
+            },
+            {
+                "id": "FML013",
+                "question": "Describe the concept of gradient descent.",
+                "response": "Gradient descent is an optimization algorithm used to minimize the loss function by iteratively moving in the direction of steepest descent as defined by the negative of the gradient."
+            },
+            {
+                "id": "FML014",
+                "question": "What is the difference between batch, mini-batch, and stochastic gradient descent?",
+                "response": "Batch GD uses all data points in each iteration, mini-batch GD uses a subset of data, and stochastic GD uses a single data point per iteration to update model parameters."
+            },
+            {
+                "id": "FML015",
+                "question": "Explain the concept of transfer learning.",
+                "response": "Transfer learning involves using knowledge gained from solving one problem and applying it to a different but related problem, often by fine-tuning a pre-trained model on a new dataset."
+            },
+            {
+                "id": "FML016",
+                "question": "What is the difference between generative and discriminative models?",
+                "response": "Generative models learn the joint probability distribution P(X,Y), while discriminative models learn the conditional probability distribution P(Y|X) directly."
+            },
+            {
+                "id": "FML017",
+                "question": "Describe the concept of dimensionality reduction.",
+                "response": "Dimensionality reduction is the process of reducing the number of features in a dataset while retaining as much important information as possible, often used for visualization or to mitigate the curse of dimensionality."
+            },
+            {
+                "id": "FML018",
+                "question": "What is the difference between PCA and t-SNE?",
+                "response": "PCA (Principal Component Analysis) is a linear dimensionality reduction technique that maximizes variance, while t-SNE (t-Distributed Stochastic Neighbor Embedding) is a non-linear technique that focuses on preserving local structure."
+            },
+            {
+                "id": "FML019",
+                "question": "Explain the concept of imbalanced datasets and how to handle them.",
+                "response": "Imbalanced datasets have a skewed distribution of class labels. They can be handled through techniques like oversampling, undersampling, SMOTE, or adjusting class weights in the model."
+            },
+            {
+                "id": "FML020",
+                "question": "What is the difference between precision and recall?",
+                "response": "Precision is the ratio of true positives to all predicted positives, while recall is the ratio of true positives to all actual positives. Precision focuses on the accuracy of positive predictions, while recall focuses on finding all positive instances."
+            },
+            {
+                "id": "FML021",
+                "question": "Describe the concept of ROC curves and AUC.",
+                "response": "ROC (Receiver Operating Characteristic) curves plot the true positive rate against the false positive rate at various threshold settings. AUC (Area Under the Curve) summarizes the performance of a classifier across all possible thresholds."
+            },
+            {
+                "id": "FML022",
+                "question": "What is the difference between a loss function and an evaluation metric?",
+                "response": "A loss function is used during training to guide the optimization of model parameters, while an evaluation metric is used to assess the model's performance on unseen data and is often more interpretable."
+            },
+            {
+                "id": "FML023",
+                "question": "Explain the concept of feature selection.",
+                "response": "Feature selection is the process of choosing a subset of relevant features for use in model construction, aiming to reduce overfitting, improve accuracy, and reduce training time."
+            },
+            {
+                "id": "FML024",
+                "question": "What is the difference between correlation and causation in machine learning?",
+                "response": "Correlation indicates a statistical relationship between variables, while causation implies that one variable directly influences another. Machine learning models typically capture correlations, not causations."
+            },
+            {
+                "id": "FML025",
+                "question": "Describe the concept of hyperparameter tuning.",
+                "response": "Hyperparameter tuning is the process of optimizing the parameters that are not learned from the data but set prior to training, such as learning rate or regularization strength, often using techniques like grid search or random search."
+            },
+            {
+                "id": "FML026",
+                "question": "What is the difference between a validation set and a test set?",
+                "response": "A validation set is used to tune hyperparameters and assess model performance during training, while a test set is used only once to evaluate the final model's performance on completely unseen data."
+            },
+            {
+                "id": "FML027",
+                "question": "Explain the concept of data leakage in machine learning.",
+                "response": "Data leakage occurs when information from outside the training dataset is used to create the model, leading to overly optimistic performance estimates and poor generalization to new data."
+            },
+            {
+                "id": "FML028",
+                "question": "What is the difference between offline and online learning?",
+                "response": "Offline learning uses a fixed dataset for training, while online learning continuously updates the model as new data becomes available, making it suitable for streaming data or when the underlying distribution changes over time."
+            },
+            {
+                "id": "FML029",
+                "question": "Describe the concept of one-hot encoding.",
+                "response": "One-hot encoding is a technique used to represent categorical variables as binary vectors, where each category is represented by a vector of 0s with a single 1 in the position corresponding to that category."
+            },
+            {
+                "id": "FML030",
+                "question": "What is the difference between a deep learning model and a traditional machine learning model?",
+                "response": "Deep learning models use multiple layers of neural networks to automatically learn hierarchical representations of data, while traditional machine learning models often rely on hand-crafted features and shallower architectures."
+            },
+            {
+                "id": "FML031",
+                "question": "Explain the concept of model interpretability.",
+                "response": "Model interpretability refers to the degree to which a human can understand the reasons behind a model's predictions, often trading off with model complexity and performance."
+            },
+            {
+                "id": "FML032",
+                "question": "What is the difference between a parametric and a non-parametric test?",
+                "response": "Parametric tests assume the data follows a specific probability distribution, while non-parametric tests make no such assumptions about the underlying distribution of the data."
+            },
+            {
+                "id": "FML033",
+                "question": "Describe the concept of model deployment in machine learning.",
+                "response": "Model deployment is the process of integrating a machine learning model into a production environment where it can take in an input and return an output. It involves considerations such as scalability, monitoring, and version control."
+            },
+            {
+                "id": "FML034",
+                "question": "What is the difference between a white-box and a black-box model?",
+                "response": "White-box models are interpretable and their decision-making process can be easily understood, while black-box models (like deep neural networks) are more complex and their internal workings are not easily interpretable."
+            },
+            {
+                "id": "FML035",
+                "question": "Explain the concept of active learning.",
+                "response": "Active learning is a semi-supervised machine learning approach where the algorithm can interactively query a user or other information source to label new data points, with the goal of minimizing the number of labeled examples needed for effective learning."
             }
         ]
     },
