@@ -50,7 +50,7 @@ export const leetcodeQuestions = pgTable('leetcode_questions', {
     similarQuestions: json('similar_questions').$type<{ name: string; slug: string; difficulty: string }[]>(),
 });
 
-export const userNotes = pgTable('user_question_data', {
+export const leetcodeNotes = pgTable('user_question_data', {
     id: serial('id').primaryKey(),
     userId: integer('user_id').notNull().references(() => users.id),
     questionId: integer('question_id').notNull().references(() => leetcodeQuestions.id),
@@ -96,25 +96,25 @@ export const leetcodeRuns = pgTable('leetcode_runs', {
 
 // Relations
 export const usersRelations = relations(users, ({ many }) => ({
-    userNotes: many(userNotes),
+    leetcodeNotes: many(leetcodeNotes),
     solutionAttempts: many(leetcodeQuestionSolutionAttempts),
     runs: many(leetcodeRuns),
 }));
 
 export const leetcodeQuestionsRelations = relations(leetcodeQuestions, ({ many }) => ({
-    userNotes: many(userNotes),
+    leetcodeNotes: many(leetcodeNotes),
     solutions: many(solutions),
     solutionAttempts: many(leetcodeQuestionSolutionAttempts),
     runs: many(leetcodeRuns),
 }));
 
-export const userNotesRelations = relations(userNotes, ({ one }) => ({
+export const leetcodeNotesRelations = relations(leetcodeNotes, ({ one }) => ({
     user: one(users, {
-        fields: [userNotes.userId],
+        fields: [leetcodeNotes.userId],
         references: [users.id],
     }),
     question: one(leetcodeQuestions, {
-        fields: [userNotes.questionId],
+        fields: [leetcodeNotes.questionId],
         references: [leetcodeQuestions.id],
     }),
 }));
