@@ -21,7 +21,6 @@ export default async function ProblemPage({ params }: { params: { problemId: str
 
     return (
         <div>
-
             <div className="flex h-full">
                 <Card className="flex-1 mr-4 overflow-y-auto">
                     <CardHeader>

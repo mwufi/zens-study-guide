@@ -15,6 +15,20 @@
       "when": 1723418415693,
       "tag": "0001_aberrant_menace",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1723502948718,
+      "tag": "0002_green_proudstar",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1723503622642,
+      "tag": "0003_bumpy_spencer_smythe",
+      "breakpoints": true
     }
   ]
 }

@@ -7,6 +7,7 @@ import {
     timestamp,
     pgEnum,
     json,
+    unique,
 } from 'drizzle-orm/pg-core';
 import { relations } from 'drizzle-orm';
 
@@ -50,15 +51,19 @@ export const leetcodeQuestions = pgTable('leetcode_questions', {
     similarQuestions: json('similar_questions').$type<{ name: string; slug: string; difficulty: string }[]>(),
 });
 
+// encapsulates many things, like favorite, notes, tags, etc.
 export const leetcodeNotes = pgTable('user_question_data', {
     id: serial('id').primaryKey(),
     userId: integer('user_id').notNull().references(() => users.id),
     questionId: integer('question_id').notNull().references(() => leetcodeQuestions.id),
     isFavorite: boolean('is_favorite').notNull().default(false),
-    userTags: json('user_tags').$type<string[]>(),
+    tags: json('tags').$type<string[]>(),
     notes: text('notes'),
-    notesCreatedAt: timestamp('notes_created_at'),
-    notesTags: json('notes_tags').$type<string[]>(),
+    notesCreatedAt: timestamp('notes_created_at').notNull().defaultNow()
+}, (table) => {
+    return {
+        userQuestionUnique: unique().on(table.userId, table.questionId),
+    }
 });
 
 export const solutions = pgTable('leetcode_question_solutions', {
