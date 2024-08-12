@@ -2,7 +2,7 @@
 import { db } from '@/db';
 import { sql, and, eq } from 'drizzle-orm';
 import Link from 'next/link';
-import { leetcodeQuestions } from '@/db/schema';
+import { leetcodeNotes, leetcodeQuestions } from '@/db/schema';
 import SortDifficulty from './SortDifficulty';
 
 async function getTopicTags(): Promise<{ topic: string, question_count: number }[]> {
@@ -14,11 +14,8 @@ async function getTopicTags(): Promise<{ topic: string, question_count: number }
 
 async function getLeetcodeQuestions(difficulty: string) {
     // get top 100 questions from db using drizzle, sorted by rating
-    const questions = await db.query.leetcodeQuestions.findMany({
-        where: difficulty ? eq(leetcodeQuestions.difficulty, difficulty) : undefined,
-        limit: 100,
-    });
-    return questions;
+    const questions = await db.select().from(leetcodeQuestions).leftJoin(leetcodeNotes, eq(leetcodeQuestions.id, leetcodeNotes.questionId)).limit(100);
+    return questions.map(question => ({ ...question.leetcode_questions, is_favorite: question.user_question_data?.isFavorite }));
 }
 
 async function getLeetcodeQuestionsByTopic(topic: string, difficulty: string, limit: number = 100) {
@@ -34,12 +31,13 @@ async function getLeetcodeQuestionsByTopic(topic: string, difficulty: string, li
     const examples = await db
         .select()
         .from(leetcodeQuestions)
+        .leftJoin(leetcodeNotes, eq(leetcodeQuestions.id, leetcodeNotes.questionId))
         .where(and(
             sql`${leetcodeQuestions.relatedTopics}::jsonb @> ${JSON.stringify([topic])}::jsonb`,
             whereDifficulty
         ))
         .limit(limit);
-    return examples;
+    return examples.map(question => ({ ...question.leetcode_questions, is_favorite: question.user_question_data?.isFavorite }));
 }
 
 const Question = ({ question }) => {
@@ -49,11 +47,14 @@ const Question = ({ question }) => {
                 <Link href={`/study/${question.id}`} className="block">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-2">
-                            {question.isPremium && (
+                            {question.is_favorite ? (
                                 <svg className="w-5 h-5 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
-                            )}
+                            ) : <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            }
                             <span className="font-medium">{question.title}</span>
                             <div className="flex space-x-1">
                                 {question.relatedTopics?.slice(0, 3).map((topic, index) => (

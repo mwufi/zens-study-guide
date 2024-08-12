@@ -1,5 +1,5 @@
 import { db } from "@/db";
-import { leetcodeNotes } from "@/db/schema";
+import { leetcodeNotes, leetcodeQuestions } from "@/db/schema";
 import { eq, and } from "drizzle-orm";
 import { exit } from "process";
 
@@ -61,6 +61,17 @@ export async function updateNote(userId: number, questionId: number, update: { n
     }
 }
 
+export async function getFavoriteQuestions(userId: number) {
+    const favoriteNotes = await db.select().from(leetcodeNotes)
+        .innerJoin(leetcodeQuestions, eq(leetcodeNotes.questionId, leetcodeQuestions.id))
+        .where(and(
+            eq(leetcodeNotes.userId, userId),
+            eq(leetcodeNotes.isFavorite, true)
+        ));
+
+    const favoriteQuestions = favoriteNotes.map(note => note.leetcode_questions);
+    return favoriteQuestions;
+}
 
 (async () => {
     await createNote(1, 1, "test", ["test"], false);
@@ -74,6 +85,10 @@ export async function updateNote(userId: number, questionId: number, update: { n
     console.log("setting tags to ['test2']")
     await updateNote(1, 1, { tags: ["test2"] });
     console.log(await getNotes(1, 1));
+
+    console.log("finding my favorite notes...")
+    await createNote(1, 2, "test", ["test"], true);
+    console.log(await getFavoriteQuestions(1));
 
     console.log('end!')
     exit(0)
