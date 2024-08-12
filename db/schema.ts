@@ -7,8 +7,6 @@ import {
     timestamp,
     pgEnum,
     json,
-    primaryKey,
-    varchar,
 } from 'drizzle-orm/pg-core';
 import { relations } from 'drizzle-orm';
 
@@ -149,3 +147,9 @@ export const leetcodeRunsRelations = relations(leetcodeRuns, ({ one }) => ({
         references: [leetcodeQuestions.id],
     }),
 }));
+
+// // regular view
+// export const topicTagsView = pgMaterializedView("topicTags", {
+//     topic: text("topic"),
+//     questionCount: integer("question_count"),
+// }).existing();

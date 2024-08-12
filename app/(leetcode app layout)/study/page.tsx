@@ -1,20 +1,27 @@
 
 import { db } from '@/db';
-import { sql } from 'drizzle-orm';
+import { sql, and, eq } from 'drizzle-orm';
 import Link from 'next/link';
 import { leetcodeQuestions } from '@/db/schema';
 import SortDifficulty from './SortDifficulty';
 
+async function getTopicTags(): Promise<{ topic: string, question_count: number }[]> {
+    const results = await db.execute<{ topic: string, question_count: number }>(
+        sql`SELECT topic, question_count FROM topicTags`
+    );
+    return results;
+}
 
-async function getLeetcodeQuestions() {
+async function getLeetcodeQuestions(difficulty: string) {
     // get top 100 questions from db using drizzle, sorted by rating
     const questions = await db.query.leetcodeQuestions.findMany({
+        where: difficulty ? eq(leetcodeQuestions.difficulty, difficulty) : undefined,
         limit: 100,
     });
     return questions;
 }
 
-async function getLeetcodeQuestionsByTopic(topic: string, limit: number = 100) {
+async function getLeetcodeQuestionsByTopic(topic: string, difficulty: string, limit: number = 100) {
     /*
     SELECT *
     FROM leetcode_questions
@@ -22,10 +29,15 @@ async function getLeetcodeQuestionsByTopic(topic: string, limit: number = 100) {
     LIMIT 3;
     */
     console.log("gettopic", topic);
+    const whereDifficulty = difficulty ? eq(leetcodeQuestions.difficulty, difficulty) : undefined;
+
     const examples = await db
         .select()
         .from(leetcodeQuestions)
-        .where(sql`${leetcodeQuestions.relatedTopics}::jsonb @> ${JSON.stringify([topic])}::jsonb`)
+        .where(and(
+            sql`${leetcodeQuestions.relatedTopics}::jsonb @> ${JSON.stringify([topic])}::jsonb`,
+            whereDifficulty
+        ))
         .limit(limit);
     return examples;
 }
@@ -77,19 +89,31 @@ const Question = ({ question }) => {
 }
 
 export default async function InterviewTopicsViewer({ searchParams }) {
-    const { topic } = searchParams;
+    const { topic, difficulty } = searchParams;
     let questions;
     if (topic) {
-        questions = await getLeetcodeQuestionsByTopic(topic);
+        questions = await getLeetcodeQuestionsByTopic(topic, difficulty);
     } else {
-        questions = await getLeetcodeQuestions();
+        questions = await getLeetcodeQuestions(difficulty);
     }
+
+    const topicTags = await getTopicTags();
 
     return (
         <div className="flex flex-col h-screen">
             <div className="flex gap-4">
                 <h1>{topic}</h1>
                 <SortDifficulty />
+            </div>
+            <div className="flex flex-wrap gap-2 mt-4 mb-6">
+                {topicTags.map((tag) => (
+                    <Link
+                        href={`/study?topic=${encodeURIComponent(tag.topic)}`}
+                        className="text-sm bg-blue-100 text-blue-800 rounded-full px-3 py-1 hover:bg-blue-200 transition-colors"
+                    >
+                        {tag.topic} ({tag.question_count})
+                    </Link>
+                ))}
             </div>
             {/* Main content */}
             <div className="flex-1 p-6 overflow-y-auto">
