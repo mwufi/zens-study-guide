@@ -50,7 +50,7 @@ export const leetcodeQuestions = pgTable('leetcode_questions', {
     similarQuestions: json('similar_questions').$type<{ name: string; slug: string; difficulty: string }[]>(),
 });
 
-export const userQuestionData = pgTable('user_question_data', {
+export const userNotes = pgTable('user_question_data', {
     id: serial('id').primaryKey(),
     userId: integer('user_id').notNull().references(() => users.id),
     questionId: integer('question_id').notNull().references(() => leetcodeQuestions.id),
@@ -61,7 +61,7 @@ export const userQuestionData = pgTable('user_question_data', {
     notesTags: json('notes_tags').$type<string[]>(),
 });
 
-export const leetcodeQuestionSolutions = pgTable('leetcode_question_solutions', {
+export const solutions = pgTable('leetcode_question_solutions', {
     id: serial('id').primaryKey(),
     questionId: integer('question_id').notNull().references(() => leetcodeQuestions.id),
     language: languageEnum('language').notNull(),
@@ -96,32 +96,32 @@ export const leetcodeRuns = pgTable('leetcode_runs', {
 
 // Relations
 export const usersRelations = relations(users, ({ many }) => ({
-    userQuestionData: many(userQuestionData),
+    userNotes: many(userNotes),
     solutionAttempts: many(leetcodeQuestionSolutionAttempts),
     runs: many(leetcodeRuns),
 }));
 
 export const leetcodeQuestionsRelations = relations(leetcodeQuestions, ({ many }) => ({
-    userQuestionData: many(userQuestionData),
-    solutions: many(leetcodeQuestionSolutions),
+    userNotes: many(userNotes),
+    solutions: many(solutions),
     solutionAttempts: many(leetcodeQuestionSolutionAttempts),
     runs: many(leetcodeRuns),
 }));
 
-export const userQuestionDataRelations = relations(userQuestionData, ({ one }) => ({
+export const userNotesRelations = relations(userNotes, ({ one }) => ({
     user: one(users, {
-        fields: [userQuestionData.userId],
+        fields: [userNotes.userId],
         references: [users.id],
     }),
     question: one(leetcodeQuestions, {
-        fields: [userQuestionData.questionId],
+        fields: [userNotes.questionId],
         references: [leetcodeQuestions.id],
     }),
 }));
 
-export const leetcodeQuestionSolutionsRelations = relations(leetcodeQuestionSolutions, ({ one }) => ({
+export const solutionsRelations = relations(solutions, ({ one }) => ({
     question: one(leetcodeQuestions, {
-        fields: [leetcodeQuestionSolutions.questionId],
+        fields: [solutions.questionId],
         references: [leetcodeQuestions.id],
     }),
 }));
