@@ -158,3 +158,48 @@ export const leetcodeRunsRelations = relations(leetcodeRuns, ({ one }) => ({
 //     topic: text("topic"),
 //     questionCount: integer("question_count"),
 // }).existing();
+
+
+export const topics = pgTable('topics', {
+    id: serial('id').primaryKey(),
+    name: text('name').notNull(),
+    description: text('description')
+});
+
+export const concepts = pgTable('concepts', {
+    id: serial('id').primaryKey(),
+    name: text('name').notNull(),
+    description: text('description')
+});
+
+export const questions = pgTable('questions', {
+    id: serial('id').primaryKey(),
+    topicId: integer('topic_id').notNull().references(() => topics.id),
+    title: text('title').notNull(),
+    description: text('description').notNull(),
+    relatedConcepts: json('related_concepts').$type<string[]>(),
+    likes: integer('likes').notNull().default(0),
+    dislikes: integer('dislikes').notNull().default(0),
+    rating: integer('rating')
+});
+
+// each topicQuestion can have many notes
+export const notes = pgTable('question_notes', {
+    id: serial('id').primaryKey(),
+    questionId: integer('question_id').notNull().references(() => questions.id),
+    note: text('note').notNull(),
+    createdBy: integer('created_by').notNull().references(() => users.id),
+    createdAt: timestamp('created_at').notNull().defaultNow(),
+});
+
+export const topicsRelations = relations(topics, ({ many }) => ({
+    questions: many(questions)
+}));
+
+export const questionsRelations = relations(questions, ({ one, many }) => ({
+    topic: one(topics, {
+        fields: [questions.topicId],
+        references: [topics.id],
+    }),
+    notes: many(notes)
+}));
